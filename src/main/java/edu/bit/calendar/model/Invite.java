@@ -1,0 +1,14 @@
+package edu.bit.calendar.model;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.Set;
+
+@Data
+@Builder
+public class Invite {
+    String inviteId;
+    String meetingId;
+    Set<String> employeeIds;
+}
