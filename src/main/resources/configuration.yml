@@ -1,0 +1,33 @@
+swagger:
+  resourcePackage: edu.bit.calendar.resources
+  contact: bitsforty@gmail.com
+server:
+  applicationConnectors:
+    - type: http
+      port: 9990
+  adminConnectors:
+    - type: http
+      port: 9991
+
+# Logging settings.
+logging:
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  appenders:
+    - type: console
+    - type: file
+      threshold: INFO
+      logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+      currentLogFilename: /tmp/application.log
+      archivedLogFilenamePattern: /tmp/application-%d{yyyy-MM-dd}-%i.log.gz
+      archivedFileCount:5
+      timeZone: IST
+      maxFileSize: 10MiB
+
+metrics:
+  reporters:
+    - type: console
+      host: localhost
+      port: 2003
+      prefix: edu.bit.calendar
+      frequency: 1m

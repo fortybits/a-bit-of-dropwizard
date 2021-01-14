@@ -11,5 +11,4 @@ public class CalendarConfig extends Configuration {
     @JsonProperty("swagger")
     private SwaggerBundleConfiguration swaggerBundleConfiguration;
 
-//    private StartupConfig startUpConfig;
 }
