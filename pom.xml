@@ -8,9 +8,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.release>16</maven.compiler.release>
         <mainClass>edu.bit.calendar.application.CalendarApplication</mainClass>
     </properties>
-    >
 
     <dependencyManagement>
         <dependencies>
@@ -74,7 +74,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
+            <version>1.18.20</version>
         </dependency>
 <!--        module not found complains -->
         <dependency>
@@ -97,21 +97,13 @@
                 <version>3.8.1</version>
                 <configuration>
                     <fork>true</fork>
-                    <source>15</source> <!-- intelliJ still stuck here-->
-                    <target>15</target>
+                    <release>16</release>
                     <compilerArgs>
                         <arg>--enable-preview</arg>
                         <arg>-Xlint:all</arg>
                     </compilerArgs>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>1.18.16</version>
-                        </path>
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -211,6 +203,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
+                <configuration>
+                    <argLine>--enable-preview</argLine>
+            </configuration>
             </plugin>
         </plugins>
     </build>
